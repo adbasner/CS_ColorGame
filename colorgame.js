@@ -62,11 +62,11 @@ resetButton.addEventListener("click", function() {
     squares[i].style.backgroundColor = colors[i];
   }
   //resets title background
-  h1.style.backgroundColor = "#242424";
+  h1.style.backgroundColor = "steelblue";
   // resets button text if won
   resetButton.textContent = "New Colors";
   // resets text span
-  messageDisplay.textContent = "Pick the color that matches the RGB value above";
+  messageDisplay.textContent = "Pick the correct color!";
 
 });
 
