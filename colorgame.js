@@ -1,3 +1,4 @@
+
 //build array of x random colors by calling the generate function
 let colors = generateRandomColors(6);
 //selects h1 to change when you win
@@ -12,6 +13,28 @@ let colorDisplay = document.getElementById("colorDisplay");
 let messageDisplay = document.querySelector("#message");
 //sets correct rga in heaser
 colorDisplay.textContent = pickedColor;
+// selects reset button
+let resetButton = document.querySelector("#reset");
+
+resetButton.addEventListener("click", function() {
+  //generate new colors
+  colors = generateRandomColors(6);
+  //pick new random color
+  pickedColor = pickColor();
+  //change color diplay to match picked color
+  colorDisplay.textContent = pickedColor;
+  //change color of squares
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].style.backgroundColor = colors[i];
+  }
+  //resets title background
+  h1.style.backgroundColor = "#242424";
+  // resets button text if won
+  resetButton.textContent = "New Colors";
+  // resets text span
+  messageDisplay.textContent = "Pick the color that matches the RGB value above";
+
+});
 
 for (let i = 0; i < squares.length; i++) {
   //add initial colors to squares
@@ -29,6 +52,8 @@ for (let i = 0; i < squares.length; i++) {
       changeColors(clickedColor);
       //changes header background to match
       h1.style.backgroundColor = clickedColor;
+      //chage text of reset button
+      resetButton.textContent = "Play Again?";
     } else {
       //blacks out box
       this.style.backgroundColor = "#242424";
